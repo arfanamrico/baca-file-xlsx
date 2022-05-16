@@ -12,3 +12,7 @@ for c in data:
     ws[f"D{a}"] = c.value #mengcopy value/nilai dari cell ke colom D
     a +=1
 Workbook.save(filename="hasil.xlsx") #menyimpan data ke file baru
+
+#catatan: jika ingin membaca file dari path yg lain
+#Workbook = load_workbook(r"E:\LOGFILE\SCR\May 2022\3G\Laptop3\export\R99DL.xlsx")
+
