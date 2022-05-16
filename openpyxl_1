@@ -16,3 +16,10 @@ Workbook.save(filename="hasil.xlsx") #menyimpan data ke file baru
 #catatan: jika ingin membaca file dari path yg lain
 #Workbook = load_workbook(r"E:\LOGFILE\SCR\May 2022\3G\Laptop3\export\R99DL.xlsx")
 
+#menghapus colom
+Workbook = load_workbook(filename="hasil.xlsx")
+ws = Workbook.active
+jml = len(ws["B"])
+for i in range(1,jml+1):
+    ws[f"B{i}"] = " "
+Workbook.save(filename="hasil.xlsx")
