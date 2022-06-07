@@ -1,0 +1,22 @@
+from openpyxl import load_workbook
+import pandas as pd
+
+wb = load_workbook('latihan.xlsx')
+ws = wb.active
+df = pd.read_csv(r"E:\LOGFILE\SCR\May 2022\4G\Laptop1\Lap1\csv\Laptop1.csv")
+dataku = df[['Serving RSRP_DL','Serving PCC SINR_DL']]
+rb = sd = 2
+for i in range (len(dataku)):
+    try:        
+        ws[f'B{rb}'] = float(dataku.iloc[i,0])
+        ws[f'D{sd}'] = float(dataku.iloc[i,1])
+        rb += 1
+        sd += 1
+        #rsrp.append(r)
+        #sinr.append(s)
+    except:
+        pass
+wb.save(filename='latihan.xlsx')
+
+catatan:
+mengcopy data dari csv ke xlsx tampa membuat list
