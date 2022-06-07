@@ -1,0 +1,9 @@
+from openpyxl import load_workbook
+
+wb = load_workbook('latihan.xlsx')
+ws = wb.active
+for dele in range(2, len(ws['B'])+1):
+    ws[f'B{dele}'] = ""
+for dele in range(2, len(ws['D'])+1):
+    ws[f'D{dele}'] = ""
+wb.save(filename='latihan.xlsx')
