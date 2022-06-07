@@ -1,0 +1,28 @@
+from openpyxl import load_workbook
+import pandas as pd
+rsrp = []
+sinr = []
+wb = load_workbook('latihan.xlsx')
+df = pd.read_csv(r"E:\LOGFILE\SCR\May 2022\4G\Laptop1\Lap1\csv\Laptop1.csv")
+#proses memilih colom yaitu rsrp dan sinr
+dataku = df[['Serving RSRP_DL','Serving PCC SINR_DL']]
+#proses memindahkan nilai rsrp dan sinr kedalam masing2 list
+for i in range (len(dataku)):
+    try:
+        r = float(dataku.iloc[i,0])
+        s = float(dataku.iloc[i,1])
+        rsrp.append(r)
+        sinr.append(s)
+    except:
+        pass
+#proses memindahkan isi list ke xlsx ke masing2 colom
+ws = wb.active
+rb = 2
+for i in range(len(rsrp)):
+    ws[f'B{rb}'] = rsrp[i]
+    rb += 1
+sd = 2
+for i in range(len(sinr)):
+    ws[f'D{sd}'] = sinr[i]
+    sd += 1
+wb.save(filename='latihan.xlsx')
