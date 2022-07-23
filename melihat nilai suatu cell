@@ -4,3 +4,5 @@ file = data.xlsx"
 wb = load_workbook(file)
 ws = wb.active
 print(ws['A2'].value)
+# atau 
+print(ws.cell(row=2, column=1).value)
