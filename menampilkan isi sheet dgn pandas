@@ -1,0 +1,9 @@
+from openpyxl import load_workbook
+import pandas as pd
+
+path = r"E:\RO TSEL JABO Project\data\NODIN\Nodin 4G Compile Update 13122022.xlsx"
+
+wb = load_workbook(path)
+print(wb.sheetnames)
+df = pd.DataFrame(wb['L900'].values)
+print(df)
